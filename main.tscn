@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgjkdncwlagyh"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_0j66p"]
+[ext_resource type="PackedScene" uid="uid://cq6f2rift6oy" path="res://node_character.tscn" id="1_etjbk"]
+[ext_resource type="PackedScene" uid="uid://6oduupjbsacx" path="res://basketball.tscn" id="2_7wvld"]
+[ext_resource type="Script" path="res://coinLabel.gd" id="4_4q0it"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fj0di"]
+font_size = 70
+font_color = Color(0.74902, 0.235294, 0.258824, 1)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_0j66p")
+basketballZA = ExtResource("2_7wvld")
+
+[node name="Player" parent="." instance=ExtResource("1_etjbk")]
+position = Vector2(113, 299)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 648
+limit_smoothed = true
+
+[node name="basketballzhangai" type="Node2D" parent="."]
+
+[node name="Basketball" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(649, -680)
+
+[node name="Basketball2" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(345, 613)
+
+[node name="Basketball3" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(345, -558)
+
+[node name="Basketball4" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(649, 536)
+
+[node name="Basketball5" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(920, -800)
+
+[node name="Basketball6" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(920, 432)
+
+[node name="Basketball7" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(1180, 560)
+
+[node name="Basketball8" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(1180, -674)
+
+[node name="Basketball9" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(1736, -688)
+
+[node name="Basketball10" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(1456, 632)
+
+[node name="Basketball11" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(1456, -600)
+
+[node name="Basketball12" parent="basketballzhangai" instance=ExtResource("2_7wvld")]
+position = Vector2(1736, 592)
+
+[node name="coninLayer" type="CanvasLayer" parent="."]
+
+[node name="coinLabel" type="Label" parent="coninLayer"]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 104.0
+offset_bottom = 64.0
+text = "得分："
+script = ExtResource("4_4q0it")
+
+[node name="finishShow" type="Label" parent="coninLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -39.5
+offset_right = 116.0
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "结束了"
+label_settings = SubResource("LabelSettings_fj0di")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="coinPlus" from="basketballzhangai/Basketball" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball2" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball2" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball3" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball3" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball4" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball4" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball5" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball5" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball6" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball6" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball7" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball7" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball8" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball8" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball9" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball9" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball10" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball10" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball11" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball11" to="." method="_on_basketball_some_body_exit"]
+[connection signal="coinPlus" from="basketballzhangai/Basketball12" to="Player" method="_on_basketball_coin_plus"]
+[connection signal="someBodyExit" from="basketballzhangai/Basketball12" to="." method="_on_basketball_some_body_exit"]

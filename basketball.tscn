@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://6oduupjbsacx"]
+
+[ext_resource type="Texture2D" uid="uid://cu2jac68lbrje" path="res://Art/75905bf36af5c78bedae840a383d8d1d.jpg" id="1_7jr23"]
+[ext_resource type="Script" path="res://basketball.gd" id="1_xium8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qihg1"]
+size = Vector2(98, 975)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5p06"]
+size = Vector2(96, 972)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aewog"]
+size = Vector2(65, 686)
+
+[node name="Basketball" type="Node2D"]
+position = Vector2(0, 110)
+script = ExtResource("1_xium8")
+
+[node name="graphic" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="graphic"]
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Sprite2D2" type="Sprite2D" parent="graphic"]
+position = Vector2(0, -68)
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Sprite2D3" type="Sprite2D" parent="graphic"]
+position = Vector2(0, 29)
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Sprite2D4" type="Sprite2D" parent="graphic"]
+position = Vector2(0, 127)
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Sprite2D5" type="Sprite2D" parent="graphic"]
+position = Vector2(0, 223)
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Sprite2D6" type="Sprite2D" parent="graphic"]
+position = Vector2(0, 321)
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Sprite2D7" type="Sprite2D" parent="graphic"]
+position = Vector2(0, 419)
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Sprite2D8" type="Sprite2D" parent="graphic"]
+position = Vector2(0, 517)
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Sprite2D9" type="Sprite2D" parent="graphic"]
+position = Vector2(0, 615)
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Sprite2D10" type="Sprite2D" parent="graphic"]
+position = Vector2(0, 712)
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Sprite2D11" type="Sprite2D" parent="graphic"]
+position = Vector2(0, 809)
+scale = Vector2(0.159016, 0.159016)
+texture = ExtResource("1_7jr23")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 370.5)
+shape = SubResource("RectangleShape2D_qihg1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 371)
+shape = SubResource("RectangleShape2D_l5p06")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.90735e-06, 370.5)
+scale = Vector2(4.8, 48.65)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -460)
+shape = SubResource("RectangleShape2D_aewog")
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_checkerbox_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
